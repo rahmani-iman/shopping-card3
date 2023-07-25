@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
+import React, { /*useContext*/ } from 'react';
+import { useDispatch } from 'react-redux';
 
 // Context
-import { CartContext } from '../../context/CartContextProvider';
+/*import { CartContext } from '../../context/CartContextProvider';*/
 
 // Functions
 import { shorten } from '../../helper/functions';
@@ -14,12 +15,13 @@ import styles from "./Cart.module.css";
 
 const Cart = (props) => {
 
-    const {dispatch} = useContext(CartContext);
+    /*const {dispatch} = useContext(CartContext);*/
+    const dispatch = useDispatch();
     const {image, title, price, quantity} = props.data;
 
     return (
         <div className={styles.container} >
-            <img className={styles.productImage} src={image} />
+            <img className={styles.productImage} src={image} alt='product'/>
             <div className={styles.data}>
                 <h3>{shorten(title)}</h3>
                 <p>{price} $</p>
